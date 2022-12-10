@@ -1,0 +1,29 @@
+<header>
+    <ul>
+    <h1>つぶやきシロー</h1>
+    </ul>
+</header>
+
+<body>
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>Content✏️</th>
+  </tr>
+
+<% @apps.each do |app| %>
+  <tr>
+    <td><%= app.content %></td>
+    <td><%= link_to '確認', app_path(app.id) %></td>
+    <td><%= link_to '編集', edit_app_path(app.id) %></td>
+    <td><%= link_to '削除', app_path(app.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
+  </tr>
+<% end %>
+</table>
+</body>
+
+<br>
+<footer>
+<%= link_to '新規投稿', new_app_path %>
+</footer>
