@@ -1,21 +1,21 @@
 <%= form_with(model: @app, local: true, url: choose_new_or_edit) do |form| %>
-    <% if @app.errors.any? %>
+  <% if @app.errors.any? %>
     <div id="error_explanation">
       <h2><%= @app.errors.count %>件のエラーがあります。</h2>
-      <ul>
-
-      <% @app.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% @app.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
     </div>
   <% end %>
 
-    <div class="app_content">
-      <%= form.label :content %>
-      <%= form.text_field :content %>
-    </div>
-    <%= form.submit %>
-  <% end %>
+  <div class="app_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
 
   <%= link_to "一覧画面に戻る", apps_path %>

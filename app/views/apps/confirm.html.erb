@@ -5,6 +5,6 @@
 
   <p>つぶやき:<%= @app.content %></p>
   <%= form.submit  "登録" %>
-<% end %>
+  <%= form.submit "戻る", name: 'back' %>
 
-<%= link_to '戻る', :back %>
+<% end %>

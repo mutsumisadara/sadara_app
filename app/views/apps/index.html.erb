@@ -1,17 +1,14 @@
-<header>
-    <ul>
-    <h1>つぶやきシロー</h1>
-    </ul>
-</header>
-
 <body>
+  <header>
+    <ul>
+      <h1>つぶやきシロー</h1>
+    </ul>
+  </header>
 <p><%= notice %></p>
-
-<table>
-  <tr>
-    <th>Content✏️</th>
-  </tr>
-
+  <table>
+    <tr>
+      <th>Content✏️</th>
+    </tr>
 <% @apps.each do |app| %>
   <tr>
     <td><%= app.content %></td>
@@ -19,8 +16,8 @@
     <td><%= link_to '編集', edit_app_path(app.id) %></td>
     <td><%= link_to '削除', app_path(app.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
   </tr>
-<% end %>
-</table>
+    <% end %>
+  </table>
 </body>
 
 <br>

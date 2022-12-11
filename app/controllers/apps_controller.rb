@@ -1,6 +1,5 @@
 class AppsController < ApplicationController
     before_action :set_app, only: [:show, :edit, :update, :destroy]
-
     def index
         @apps = App.all
     end
@@ -11,10 +10,14 @@ class AppsController < ApplicationController
 
     def create
         @app = App.new(app_params)
-        if @app.save
-            redirect_to apps_path, notice: "投稿しました！"
+        if params[:back]
+            render :new
         else
-        render :new
+            if @app.save
+                redirect_to apps_path, notice: "投稿しました！"
+            else
+                render :new
+            end
         end
     end
 
@@ -38,12 +41,10 @@ class AppsController < ApplicationController
     end
 
     def confirm
-        @app = App.new(blog_params)
+        @app = App.new(app_params)
     end
     
     private
-
-
     def app_params
         params.require(:app).permit(:content)
     end
