@@ -37,7 +37,10 @@ class AppsController < ApplicationController
         redirect_to apps_path, notice:"削除しました！"
     end
 
-
+    def confirm
+        @app = App.new(blog_params)
+    end
+    
     private
 
 

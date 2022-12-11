@@ -1,0 +1,10 @@
+<h3>以下の内容で送信する。</h3>
+
+<%= form_with(model: @app, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+
+  <p>つぶやき:<%= @app.content %></p>
+  <%= form.submit  "登録" %>
+<% end %>
+
+<%= link_to '戻る', :back %>
